@@ -98,3 +98,13 @@ If any step fails, you lose points for that category.
 
 * Push to GitHub/GitLab and share the repo URL **OR** upload a zip including `.git` history.
 * Your **last commit** must be before the 30-minute deadline.
+
+## How to run checks locally
+
+```bash
+pip install -r requirements.txt
+pylint --errors-only src
+PYTHONPATH=src pytest tests -v
+PYTHONPATH=src pytest --pylint src -v
+PYTHONPATH=src coverage run -m pytest tests
+coverage report --fail-under=100
